@@ -1,3 +1,8 @@
 <resources>
-    <string name="app_name">SImpleMVVM</string>
+    <string name="app_name">SimpleMVVM</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="main_tab_list_text">لیست</string>
+    <string name="main_tab_interest_text">علاقه مندی ها</string>
+
+
 </resources>

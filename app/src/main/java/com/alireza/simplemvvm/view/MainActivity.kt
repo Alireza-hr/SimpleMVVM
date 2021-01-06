@@ -1,12 +1,18 @@
 package com.alireza.simplemvvm.view
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.alireza.simplemvvm.R
 
-class MainActivity : AppCompatActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-    }
+import androidx.databinding.ViewDataBinding
+import com.alireza.simplemvvm.R
+import com.alireza.simplemvvm.databinding.ActivityMainBinding
+import com.alireza.simplemvvm.view.base.BaseActivity
+
+class MainActivity : BaseActivity<ActivityMainBinding>() {
+
+    override fun getLayoutResourceId() = R.layout.activity_main
+
+    override fun onCreate(
+        savedInstanceState: Bundle?,
+        viewDataBinding: ViewDataBinding
+    ) {}
 }
