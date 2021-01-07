@@ -11,7 +11,9 @@ import com.alireza.simplemvvm.databinding.FragmentMainBinding
 import com.alireza.simplemvvm.view.base.BaseFragment
 import com.alireza.simplemvvm.viewmodel.MainFragmentViewModel
 import com.google.android.material.tabs.TabLayoutMediator
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainFragment() :
     BaseFragment<MainFragmentViewModel, FragmentMainBinding>(MainFragmentViewModel::class.java) {
 
