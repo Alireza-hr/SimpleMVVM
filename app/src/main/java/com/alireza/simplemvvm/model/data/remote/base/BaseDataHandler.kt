@@ -9,9 +9,10 @@ abstract class BaseDataHandler {
         networkCall: suspend () -> Resource<T>
     ): LiveData<Resource<T>> = liveData(Dispatchers.IO) {
 
-        emit(Resource.Loading())
+        emit(Resource.Loading(true))
 
         emit(networkCall.invoke())
 
+        emit(Resource.Loading(false))
     }
 }

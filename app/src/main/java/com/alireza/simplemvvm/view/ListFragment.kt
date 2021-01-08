@@ -32,19 +32,18 @@ class ListFragment :
 
             when (it) {
                 is Resource.Loading -> {
-                    viewModel.isLoading.set(true)
-                    Log.d("TAG_LIST_FRAGMET", "2")
+                    viewModel.isLoading.set(it.isLoading)
+                    Log.d("TAG_LIST_FRAGMET", "isLoading")
 
                 }
 
                 is Resource.Success -> {
-                    viewModel.isLoading.set(false)
-                    Log.d("TAG_LIST_FRAGMET", "1")
+                    Log.d("TAG_LIST_FRAGMET", "Success")
+                    
                 }
 
                 is Resource.Error -> {
-                    viewModel.isLoading.set(false)
-                    Log.d("TAG_LIST_FRAGMET", "3")
+                    Log.d("TAG_LIST_FRAGMET", "Error")
 
                     toast(it.message!!)
                 }

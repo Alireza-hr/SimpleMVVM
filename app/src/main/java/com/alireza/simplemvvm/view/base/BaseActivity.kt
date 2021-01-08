@@ -6,7 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 
-abstract class BaseActivity<DB : ViewDataBinding>() : AppCompatActivity() ,ViewContract{
+abstract class BaseActivity<DB : ViewDataBinding>() : AppCompatActivity() , ViewContract{
 
     private lateinit var dataBinding: DB
 
