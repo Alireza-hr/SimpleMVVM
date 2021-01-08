@@ -2,9 +2,13 @@ package com.alireza.simplemvvm.view
 
 import android.os.Bundle
 import android.util.Log
+import android.view.View
+import androidx.core.os.bundleOf
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.GridLayoutManager
 import com.alireza.simplemvvm.R
+import androidx.navigation.fragment.findNavController
+
 import com.alireza.simplemvvm.adapters.CharactersListAdapter
 import com.alireza.simplemvvm.databinding.FragmentListBinding
 import com.alireza.simplemvvm.model.data.remote.base.Resource
@@ -57,10 +61,15 @@ class ListFragment :
             layoutManager = GridLayoutManager(requireContext(), 4)
             adapter = charactersAdapter
         }
-
     }
 
-    override fun onClickedCharacter(characterId: Int) {
+    override fun onClickedCharacter(characterId: Int, view: View) {
         toast(characterId.toString())
+
+        findNavController()
+            .navigate(
+                R.id.action_mainFragment_to_detailOneCharacterFragment,
+                bundleOf("id" to characterId)
+            )
     }
 }

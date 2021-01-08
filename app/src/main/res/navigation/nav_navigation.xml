@@ -8,7 +8,20 @@
     <fragment
         android:id="@+id/mainFragment"
         android:name="com.alireza.simplemvvm.view.MainFragment"
-        android:label="fragment_main"
-        tools:layout="@layout/fragment_main" />
+        android:label="Character List"
+        tools:layout="@layout/fragment_main">
+        <action
+            android:id="@+id/action_mainFragment_to_detailOneCharacterFragment"
+            app:destination="@id/detailOneCharacterFragment" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/detailOneCharacterFragment"
+        android:name="com.alireza.simplemvvm.view.DetailOneCharacterFragment"
+        android:label="Character Detail"
+        tools:layout="@layout/fragment_detail_one_character">
+
+    </fragment>
 
 </navigation>

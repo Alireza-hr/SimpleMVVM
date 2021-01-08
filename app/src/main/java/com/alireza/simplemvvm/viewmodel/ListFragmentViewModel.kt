@@ -8,10 +8,8 @@ import com.alireza.simplemvvm.model.data.repository.CharacterRepository
 import com.alireza.simplemvvm.view.base.BaseViewModel
 
 class ListFragmentViewModel @ViewModelInject constructor(
-    private val repository: CharacterRepository,
-    @Assisted private val savedState: SavedStateHandle
+    private val repository: CharacterRepository
 ) : BaseViewModel() {
-    var isLoading = ObservableField<Boolean>(true)
 
     val getAllCharacters = repository.getAllCharacters()
 

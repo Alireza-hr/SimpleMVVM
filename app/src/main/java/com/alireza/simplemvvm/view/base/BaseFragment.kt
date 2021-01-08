@@ -20,8 +20,6 @@ abstract class BaseFragment<VM : BaseViewModel, DB : ViewDataBinding>(
         getViewM()
     }
 
-    private lateinit var dataBinding: DB
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,

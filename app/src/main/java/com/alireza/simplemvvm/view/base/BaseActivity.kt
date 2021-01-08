@@ -6,22 +6,20 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 
-abstract class BaseActivity<DB : ViewDataBinding>() : AppCompatActivity() , ViewContract{
-
-    private lateinit var dataBinding: DB
+abstract class BaseActivity<DB : ViewDataBinding>() : AppCompatActivity(), ViewContract {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        dataBinding = DataBindingUtil.setContentView(this, getLayoutResourceId())
+        val binding = DataBindingUtil.setContentView<DB>(this, getLayoutResourceId())
 
-        setContentView(dataBinding.root)
+        setContentView(binding.root)
 
-        onCreate(savedInstanceState, dataBinding)
+        onCreate(savedInstanceState, binding)
     }
 
     protected abstract fun onCreate(
         savedInstanceState: Bundle?,
-        viewDataBinding: ViewDataBinding
+        dataBinding: DB
     )
 }

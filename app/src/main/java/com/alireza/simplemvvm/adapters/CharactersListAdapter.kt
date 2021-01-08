@@ -15,7 +15,7 @@ class CharactersListAdapter(
 ) : BaseRecyclerAdapter<Character>() {
 
     interface CharacterItemListener {
-        fun onClickedCharacter(characterId: Int)
+        fun onClickedCharacter(characterId: Int, view: View)
     }
 
     override fun getItemLayoutId() = R.layout.character_list
@@ -34,7 +34,7 @@ class CharactersListAdapter(
     }
 
     override fun onItemClicked(position: Int, item: Character, view: View) =
-        characterItemListener.onClickedCharacter(item.id)
+        characterItemListener.onClickedCharacter(item.id, view)
 
     fun submitItem(items: ArrayList<Character>) {
         addNewItem(items)

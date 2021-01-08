@@ -3,6 +3,9 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="main_tab_list_text">List</string>
     <string name="main_tab_interest_text">Favorite List</string>
+    <string name="detail_status_text">Status:</string>
+    <string name="detail_species_text">Species:</string>
+    <string name="detail_type_text">Type:</string>
 
 
 </resources>
