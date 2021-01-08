@@ -2,12 +2,10 @@ package com.alireza.simplemvvm.view
 
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import androidx.lifecycle.Observer
+import androidx.recyclerview.widget.GridLayoutManager
 import com.alireza.simplemvvm.R
+import com.alireza.simplemvvm.adapters.CharactersListAdapter
 import com.alireza.simplemvvm.databinding.FragmentListBinding
 import com.alireza.simplemvvm.model.data.remote.base.Resource
 import com.alireza.simplemvvm.view.base.BaseFragment
@@ -17,7 +15,10 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class ListFragment :
     BaseFragment<ListFragmentViewModel,
-            FragmentListBinding>(ListFragmentViewModel::class.java) {
+            FragmentListBinding>(ListFragmentViewModel::class.java),
+    CharactersListAdapter.CharacterItemListener {
+
+    private lateinit var charactersAdapter: CharactersListAdapter
 
     override fun getLayoutResourceId() = R.layout.fragment_list
 
@@ -28,26 +29,38 @@ class ListFragment :
     ) {
         dataBinding.viewModel = viewModel
 
+        setUpRecyclerView(dataBinding)
+
         viewModel.getAllCharacters.observe(viewLifecycleOwner, Observer {
 
             when (it) {
                 is Resource.Loading -> {
                     viewModel.isLoading.set(it.isLoading)
-                    Log.d("TAG_LIST_FRAGMET", "isLoading")
-
                 }
 
                 is Resource.Success -> {
-                    Log.d("TAG_LIST_FRAGMET", "Success")
-                    
+                    if (it.data != null) {
+                        charactersAdapter.submitItem(ArrayList(it.data.results))
+                    }
                 }
 
                 is Resource.Error -> {
-                    Log.d("TAG_LIST_FRAGMET", "Error")
-
                     toast(it.message!!)
                 }
             }
         })
+    }
+
+    private fun setUpRecyclerView(dataBinding: FragmentListBinding) {
+        charactersAdapter = CharactersListAdapter(this)
+        dataBinding.recyclerview.apply {
+            layoutManager = GridLayoutManager(requireContext(), 4)
+            adapter = charactersAdapter
+        }
+
+    }
+
+    override fun onClickedCharacter(characterId: Int) {
+        toast(characterId.toString())
     }
 }
