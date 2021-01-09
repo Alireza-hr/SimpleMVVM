@@ -35,18 +35,16 @@ class ListFragment :
 
         viewModel.getAllCharacters.observe(viewLifecycleOwner, Observer {
 
-            when (it) {
-                is Resource.Loading -> {
-                    viewModel.isLoading.set(it.isLoading)
+            when (it.status) {
+                Resource.Status.LOADING -> {
+                    viewModel.isLoading.set(!viewModel.isLoading.get()!!)
                 }
-
-                is Resource.Success -> {
+                Resource.Status.SUCCESS -> {
                     if (it.data != null) {
-                        charactersAdapter.submitItem(ArrayList(it.data.results))
+                        charactersAdapter.submitItem(it.data)
                     }
                 }
-
-                is Resource.Error -> {
+                Resource.Status.ERROR -> {
                     toast(it.message!!)
                 }
             }

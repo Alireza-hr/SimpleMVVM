@@ -36,7 +36,7 @@ class CharactersListAdapter(
     override fun onItemClicked(position: Int, item: Character, view: View) =
         characterItemListener.onClickedCharacter(item.id, view)
 
-    fun submitItem(items: ArrayList<Character>) {
+    fun submitItem(items: List<Character>) {
         addNewItem(items)
     }
 }

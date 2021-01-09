@@ -1,8 +1,13 @@
 package com.alireza.simplemvvm.model.data.entities
 
-data class Character(
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+
+@Entity(tableName = "characters")
+public data class Character(
     val created: String,
     val gender: String,
+    @PrimaryKey
     val id: Int,
     val image: String,
     val name: String,

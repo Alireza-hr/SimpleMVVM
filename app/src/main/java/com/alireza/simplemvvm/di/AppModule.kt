@@ -1,13 +1,18 @@
 package com.alireza.simplemvvm.di
 
+import android.content.Context
+import com.alireza.simplemvvm.model.data.local.CharacterDao
+import com.alireza.simplemvvm.model.data.local.CharacterDataBase
 import com.alireza.simplemvvm.model.data.remote.CharacterRemoteWebService
 import com.alireza.simplemvvm.model.data.remote.CharacterWebService
+import com.alireza.simplemvvm.model.data.repository.CharacterRepository
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ApplicationComponent
+import dagger.hilt.android.qualifiers.ApplicationContext
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton
@@ -37,4 +42,19 @@ object AppModule {
     fun provideCharacterRemoteWebService(characterWebService: CharacterWebService)
             = CharacterRemoteWebService(characterWebService)
 
+    @Singleton
+    @Provides
+    fun provideDatabase(@ApplicationContext appContext: Context)
+            = CharacterDataBase.getDatabase(appContext)
+
+    @Singleton
+    @Provides
+    fun provideCharacterDao(db: CharacterDataBase)
+            = db.characterDao()
+
+    @Singleton
+    @Provides
+    fun provideRepository(remoteDataSource: CharacterRemoteWebService,
+                          localDataSource: CharacterDao
+    ) = CharacterRepository(remoteDataSource, localDataSource)
 }

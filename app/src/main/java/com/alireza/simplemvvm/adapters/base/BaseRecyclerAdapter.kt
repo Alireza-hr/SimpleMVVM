@@ -28,7 +28,7 @@ abstract class BaseRecyclerAdapter<T> : RecyclerView.Adapter<BaseViewHolder<T>>(
 
     protected abstract fun getItemLayoutId(): Int
 
-    protected fun addNewItem(newItem: ArrayList<T>) {
+    protected fun addNewItem(newItem: List<T>) {
         items.apply {
             clear()
             addAll(newItem)

@@ -34,23 +34,21 @@ class DetailOneCharacterFragment
         })
 
         arguments?.let { it ->
-            viewModel.getOneCharacter(it.getInt("id")).observe(viewLifecycleOwner, Observer {data->
+            viewModel.getOneCharacter(it.getInt("id")).observe(viewLifecycleOwner, Observer {
 
-                when (data) {
-                    is Resource.Loading -> {
-                        viewModel.isLoading.set(data.isLoading)
+                when (it.status) {
+                    Resource.Status.LOADING -> {
+                        viewModel.isLoading.set(!viewModel.isLoading.get()!!)
                     }
-
-                    is Resource.Success -> {
-                        Log.d("AAACCC",data.data.toString()+ "999 ")
-                        viewModel.bindCharacterData.set(data.data)
+                    Resource.Status.SUCCESS -> {
+                        if (it.data != null) {
+                            viewModel.bindCharacterData.set(it.data)
+                        }
                     }
-
-                    is Resource.Error -> {
-                        toast(data.message!!)
+                    Resource.Status.ERROR -> {
+                        toast(it.message!!)
                     }
                 }
-
             })
         }
     }

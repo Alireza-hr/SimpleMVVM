@@ -19,7 +19,8 @@ class DetailOneCharacterViewModel @ViewModelInject constructor(
 
     val onBackClicked = MutableLiveData<View>()
 
-    fun getOneCharacter(id: Int) = repository.getOneCharacter(id)
+    fun getOneCharacter(id: Int) =
+        repository.getOneCharacter(id)
 
     val bindCharacterData = ObservableField<Character>()
 
