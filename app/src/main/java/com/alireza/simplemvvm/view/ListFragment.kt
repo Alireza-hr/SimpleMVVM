@@ -65,8 +65,6 @@ class ListFragment :
 
     override fun onClickedCharacter(characterId: Int, view: View) {
 
-        toast(characterId.toString())
-
         val detailCharacter = DetailOneCharacterFragment()
         detailCharacter.arguments = bundleOf("id" to characterId)
 
