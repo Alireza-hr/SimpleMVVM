@@ -24,8 +24,8 @@ class CharactersListAdapter(
 
         holder.itemView.name.text = item.name
 
-        holder.itemView.species_and_status.text =
-            StringBuilder().append(item.species).append(item.status)
+            holder.itemView.species_and_status.text =
+            String.format("%s | %s", item.species, item.status)
 
         Glide.with(holder.itemView.context)
             .load(item.image)

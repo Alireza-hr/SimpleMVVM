@@ -1,20 +1,17 @@
 package com.alireza.simplemvvm.view
 
 import android.os.Bundle
-import android.widget.Toolbar
-import androidx.databinding.ViewDataBinding
-import androidx.navigation.NavController
-import androidx.navigation.fragment.NavHostFragment
-import androidx.navigation.ui.AppBarConfiguration
+import androidx.fragment.app.Fragment
+
 import com.alireza.simplemvvm.R
-import androidx.navigation.ui.setupWithNavController
 import com.alireza.simplemvvm.databinding.ActivityMainBinding
 import com.alireza.simplemvvm.view.base.BaseActivity
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.android.synthetic.main.activity_main.*
 
 @AndroidEntryPoint
 class MainActivity : BaseActivity<ActivityMainBinding>() {
+
+    private lateinit var dataBinding: ActivityMainBinding
 
     override fun getLayoutResourceId() = R.layout.activity_main
 
@@ -22,11 +19,32 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
         savedInstanceState: Bundle?,
         dataBinding: ActivityMainBinding
     ) {
+        this.dataBinding = dataBinding
 
-        val navHostFragment: NavHostFragment =
-            supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
-        val navController: NavController = navHostFragment.navController
-        val appBarConfiguration: AppBarConfiguration = AppBarConfiguration(navController.graph)
-        dataBinding.toolbar.setupWithNavController(navController, appBarConfiguration)
+        if (savedInstanceState == null) {
+            replaceFragment(
+                dataBinding.containFragment.id,
+                MainFragment(),
+                MainFragment.MAIN_FRAGMENT_TAG,
+                true
+            )
+        }
+    }
+
+    fun replaceFragment(
+        fragmentObject: Fragment,
+        fragmentTag: String,
+        wantAddToBackStack: Boolean
+    ) {
+        super.replaceFragment(
+            dataBinding.containFragment.id,
+            fragmentObject,
+            fragmentTag,
+            wantAddToBackStack
+        )
+    }
+
+   public override fun onBackPressed() {
+        super.onBackPressed()
     }
 }

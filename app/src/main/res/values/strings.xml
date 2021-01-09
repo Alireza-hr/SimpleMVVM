@@ -6,6 +6,7 @@
     <string name="detail_status_text">Status:</string>
     <string name="detail_species_text">Species:</string>
     <string name="detail_type_text">Type:</string>
+    <string name="unknown_text">Unknown</string>
 
 
 </resources>

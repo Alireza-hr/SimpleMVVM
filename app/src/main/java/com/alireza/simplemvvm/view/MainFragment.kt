@@ -1,5 +1,6 @@
 package com.alireza.simplemvvm.view
 
+import android.content.Context
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -17,6 +18,10 @@ import dagger.hilt.android.AndroidEntryPoint
 class MainFragment() :
     BaseFragment<MainFragmentViewModel, FragmentMainBinding>(MainFragmentViewModel::class.java) {
 
+    companion object {
+        const val MAIN_FRAGMENT_TAG = "MainFragment"
+    }
+
     override fun getLayoutResourceId() = R.layout.fragment_main
 
     override fun onCreateView(
@@ -27,7 +32,6 @@ class MainFragment() :
         dataBinding.viewModel = viewModel
 
         val tabLayout = dataBinding.tabs
-        
         val viewPager = dataBinding.viewPager
 
         viewPager.adapter = SimplePageAdapter(this)

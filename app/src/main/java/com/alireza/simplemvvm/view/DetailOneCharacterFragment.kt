@@ -1,9 +1,8 @@
 package com.alireza.simplemvvm.view
 
 import android.os.Bundle
+import android.util.Log
 import androidx.lifecycle.Observer
-import androidx.navigation.findNavController
-import androidx.navigation.fragment.navArgs
 import com.alireza.simplemvvm.R
 import com.alireza.simplemvvm.databinding.FragmentDetailOneCharacterBinding
 import com.alireza.simplemvvm.model.data.remote.base.Resource
@@ -17,6 +16,9 @@ class DetailOneCharacterFragment
         FragmentDetailOneCharacterBinding>
     (DetailOneCharacterViewModel::class.java) {
 
+    companion object {
+        const val DETAIL_ONE_CHARACTER_FRAGMENT = "DetailOneCharacterFragment"
+    }
 
     override fun getLayoutResourceId() = R.layout.fragment_detail_one_character
 
@@ -28,23 +30,24 @@ class DetailOneCharacterFragment
         dataBinding.viewModel = viewModel
 
         viewModel.onBackClicked.observe(viewLifecycleOwner, Observer {
-            it.findNavController().navigateUp()
+            ((activity as MainActivity)).onBackPressed()
         })
 
-        arguments?.let {
-            viewModel.getOneCharacter(it.getInt("id")).observe(viewLifecycleOwner, Observer {
+        arguments?.let { it ->
+            viewModel.getOneCharacter(it.getInt("id")).observe(viewLifecycleOwner, Observer {data->
 
-                when (it) {
+                when (data) {
                     is Resource.Loading -> {
-                        viewModel.isLoading.set(it.isLoading)
+                        viewModel.isLoading.set(data.isLoading)
                     }
 
                     is Resource.Success -> {
-                        viewModel.bindCharacterData.set(it.data)
+                        Log.d("AAACCC",data.data.toString()+ "999 ")
+                        viewModel.bindCharacterData.set(data.data)
                     }
 
                     is Resource.Error -> {
-                        toast(it.message!!)
+                        toast(data.message!!)
                     }
                 }
 

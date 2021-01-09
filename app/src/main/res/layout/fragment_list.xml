@@ -30,7 +30,7 @@
             android:id="@+id/recyclerview"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:setVisibilityRecyclerView="@{viewModel.isLoading}" />
+            android:setVisibilityContain="@{viewModel.isLoading}" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

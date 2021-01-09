@@ -5,6 +5,7 @@
     tools:context=".view.DetailOneCharacterFragment">
 
     <data>
+        <import type="com.alireza.simplemvvm.model.utils.ExtensionFunctions"/>
         <variable
             name="viewModel"
             type="com.alireza.simplemvvm.viewmodel.DetailOneCharacterViewModel" />
@@ -153,7 +154,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="23dp"
                     android:maxLines="1"
-                    android:text="@{viewModel.bindCharacterData.type}"
+                    android:setText="@{viewModel.bindCharacterData.type}"
                     android:textSize="14sp"
                     android:textStyle="bold" />
             </LinearLayout>
