@@ -1,4 +1,4 @@
-package com.alireza.simplemvvm.view.base
+package com.alireza.simplemvvm.viewmodel.base
 
 import androidx.databinding.ObservableField
 import androidx.lifecycle.ViewModel
