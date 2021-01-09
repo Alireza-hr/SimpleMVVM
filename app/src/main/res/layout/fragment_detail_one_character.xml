@@ -17,7 +17,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="46dp"
+            android:layout_height="56dp"
             android:background="@color/design_default_color_primary">
 
             <ImageButton
@@ -36,6 +36,7 @@
                 android:layout_marginStart="8dp"
                 android:textColor="@color/white"
                 android:textSize="18sp" />
+
         </LinearLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -158,6 +159,7 @@
                     android:textSize="14sp"
                     android:textStyle="bold" />
             </LinearLayout>
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <ProgressBar

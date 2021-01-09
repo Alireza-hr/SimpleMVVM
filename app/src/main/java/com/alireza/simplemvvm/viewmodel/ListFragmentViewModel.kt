@@ -12,5 +12,4 @@ class ListFragmentViewModel @ViewModelInject constructor(
 ) : BaseViewModel() {
 
     val getAllCharacters = repository.getAllCharacters()
-
 }

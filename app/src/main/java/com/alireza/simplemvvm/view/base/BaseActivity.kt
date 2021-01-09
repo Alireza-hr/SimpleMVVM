@@ -1,15 +1,13 @@
 package com.alireza.simplemvvm.view.base
 
 import android.os.Bundle
-import android.util.Log
 import androidx.annotation.IdRes
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentTransaction
 import com.alireza.simplemvvm.view.DetailOneCharacterFragment
-import com.alireza.simplemvvm.view.MainFragment
+import com.alireza.simplemvvm.view.ListFragment
 
 
 abstract class BaseActivity<DB : ViewDataBinding>() : AppCompatActivity(), ViewContract {
@@ -55,7 +53,7 @@ abstract class BaseActivity<DB : ViewDataBinding>() : AppCompatActivity(), ViewC
 
             supportFragmentManager
                 .beginTransaction()
-                .hide(supportFragmentManager.findFragmentByTag(MainFragment.MAIN_FRAGMENT_TAG)!!)
+                .hide(supportFragmentManager.findFragmentByTag(ListFragment.LIST_FRAGMENT_TAG)!!)
                 .commit()
         }
     }
@@ -63,9 +61,9 @@ abstract class BaseActivity<DB : ViewDataBinding>() : AppCompatActivity(), ViewC
     override fun onBackPressed() {
         val supportFragmentManager = supportFragmentManager
 
-        if (supportFragmentManager.findFragmentByTag(MainFragment.MAIN_FRAGMENT_TAG) != null) {
+        if (supportFragmentManager.findFragmentByTag(ListFragment.LIST_FRAGMENT_TAG) != null) {
             if (supportFragmentManager
-                    .findFragmentByTag(MainFragment.MAIN_FRAGMENT_TAG)!!.isHidden
+                    .findFragmentByTag(ListFragment.LIST_FRAGMENT_TAG)!!.isHidden
             ) {
                 if (supportFragmentManager
                         .findFragmentByTag(DetailOneCharacterFragment.DETAIL_ONE_CHARACTER_FRAGMENT) != null
@@ -87,12 +85,12 @@ abstract class BaseActivity<DB : ViewDataBinding>() : AppCompatActivity(), ViewC
                     .beginTransaction()
                     .show(
                         supportFragmentManager.findFragmentByTag(
-                            MainFragment.MAIN_FRAGMENT_TAG
+                            ListFragment.LIST_FRAGMENT_TAG
                         )!!
                     )
                     .commit()
             } else if (supportFragmentManager
-                    .findFragmentByTag(MainFragment.MAIN_FRAGMENT_TAG)!!.isVisible
+                    .findFragmentByTag(ListFragment.LIST_FRAGMENT_TAG)!!.isVisible
             ) {
                 super.onBackPressed()
             }

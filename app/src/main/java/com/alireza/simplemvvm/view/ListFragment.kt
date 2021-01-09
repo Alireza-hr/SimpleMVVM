@@ -20,6 +20,10 @@ class ListFragment :
             FragmentListBinding>(ListFragmentViewModel::class.java),
     CharactersListAdapter.CharacterItemListener {
 
+    companion object {
+        const val LIST_FRAGMENT_TAG = "ListFragment"
+    }
+
     private lateinit var charactersAdapter: CharactersListAdapter
 
     override fun getLayoutResourceId() = R.layout.fragment_list

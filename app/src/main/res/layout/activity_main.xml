@@ -19,6 +19,7 @@
                 android:minHeight="?attr/actionBarSize"
                 android:theme="@style/Theme.SimpleMVVM.AppBarOverlay"
                 app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+
         </com.google.android.material.appbar.AppBarLayout>
 
         <FrameLayout

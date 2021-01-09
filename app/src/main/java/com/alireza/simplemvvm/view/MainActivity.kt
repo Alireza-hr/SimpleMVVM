@@ -24,8 +24,8 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
         if (savedInstanceState == null) {
             replaceFragment(
                 dataBinding.containFragment.id,
-                MainFragment(),
-                MainFragment.MAIN_FRAGMENT_TAG,
+                ListFragment(),
+                ListFragment.LIST_FRAGMENT_TAG,
                 true
             )
         }
