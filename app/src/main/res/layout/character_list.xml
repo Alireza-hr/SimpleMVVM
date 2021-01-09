@@ -4,13 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="210dp"
-    android:layout_margin="8dp"
+    android:layout_margin="4dp"
     app:cardCornerRadius="4dp"
     app:cardElevation="4dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+
         android:padding="16dp">
 
         <androidx.appcompat.widget.AppCompatImageView
@@ -32,7 +33,7 @@
             android:ellipsize="end"
             android:maxLines="1"
             android:text="TextView"
-            android:textSize="18sp"
+            android:textSize="16sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="@+id/image"
             app:layout_constraintStart_toStartOf="@+id/image"

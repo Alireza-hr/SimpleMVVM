@@ -24,7 +24,7 @@
                 android:id="@+id/linearLayout"
                 android:layout_width="match_parent"
                 android:layout_height="56dp"
-                android:background="@color/design_default_color_primary"
+                android:background="@color/purple_700"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
@@ -33,10 +33,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:layout_marginStart="8dp"
+                    android:layout_marginStart="16dp"
                     android:text="Character List"
                     android:textColor="@color/white"
-                    android:textSize="18sp" />
+                    android:textSize="22sp" />
 
             </LinearLayout>
 

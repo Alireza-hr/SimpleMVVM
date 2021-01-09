@@ -58,7 +58,7 @@ class ListFragment :
     private fun setUpRecyclerView(dataBinding: FragmentListBinding) {
         charactersAdapter = CharactersListAdapter(this)
         dataBinding.recyclerview.apply {
-            layoutManager = GridLayoutManager(requireContext(), 4)
+            layoutManager = GridLayoutManager(requireContext(), 2)
             adapter = charactersAdapter
         }
     }

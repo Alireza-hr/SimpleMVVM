@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="Theme.SimpleMVVM.AppBarOverlay" parent="ThemeOverlay.MaterialComponents.Dark.ActionBar"/>
+    <style name="Theme.SimpleMVVM.AppBarOverlay" parent="Theme.AppCompat.DayNight.NoActionBar"/>
 </resources>
