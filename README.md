@@ -1,6 +1,6 @@
 # [Model-View-ViewModel (ie MVVM)](https://github.com/Alireza-hr/SimpleMVVM)
 
-(https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93viewmodel#/media/File:MVVMPattern.png)
+![mvvm](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93viewmodel#/media/File:MVVMPattern.png)
 
 ##Model-View-ViewModel (MVVM)## is a structural design pattern that separates objects into three distinct groups: Models hold application data. They're usually structs or simple classes. Views display visual elements and controls on the screen. They're usually classes, so they can be passed around as references.
 ##MVVM## is enough for small projects, but when your codebase becomes huge, your ViewModels start bloating. Separating responsibilities becomes hard. ##MVVM with ##Clean Architecture## is pretty good in such cases.
